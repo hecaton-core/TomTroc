@@ -130,3 +130,324 @@ main {
     text-decoration: none;
     font-size: 12px;
 }
+
+/* HOME - Section intro */
+
+.home-intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    padding: 80px 40px;
+}
+
+.intro-content {
+    width: 330px;
+    flex-shrink: 0;
+}
+
+.intro-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1;
+    color: #000000;
+    margin: 0 0 20px;
+}
+
+.intro-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1;
+    color: #292929;
+    margin: 0 0 32px;
+}
+
+.intro-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 150px;
+    min-height: 55px;
+    padding: 0 20px;
+
+    background-color: #00ac66;
+    color: #ffffff;
+    border-radius: 10px;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: background-color 0.5s ease;
+}
+
+.intro-button:hover {
+    background-color: #006d41;
+}
+
+.intro-image {
+    margin: 0;
+}
+
+.intro-image img {
+    display: block;
+    width: 400px;
+    height: auto;
+}
+
+.intro-image figcaption {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: italic;
+    color: #a6a6a6;
+    text-align: right;
+    margin-top: 8px;
+}
+
+/*HOME - Section Derniers livres ajoutés */
+
+.home-latest-books {
+    background-color: #faf9f7;
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.home-latest-books h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 60px;
+}
+
+.latest-books-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto 48px;
+}
+
+.latest-books-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    margin: 22px 38px 22px 38px;
+
+    background-color: #00ac66;
+    color: #ffffff;
+    border-radius: 10px;
+    min-height: 63px;
+    min-width: 218px;
+    box-sizing: border-box;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: background-color 0.5s ease;
+}
+
+.latest-books-button:hover {
+    background-color: #006d41;
+}
+
+/* Relatif aux "book cards" de la section précédente */
+
+.book-card {
+    text-align: left;
+    width: 200px;
+    min-height: 324px;
+    background-color: #ffffff;
+
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.01);
+
+    overflow: hidden;
+}
+
+.book-card:hover {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+}
+
+.book-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    display: block;
+}
+
+.book-card-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.book-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 16px 0 8px;
+    margin-left: 12px;
+}
+
+.book-card p {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.book-author {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: #a6a6a6;
+    margin-bottom: 16px;
+}
+
+.book-owner {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    font-style: italic;
+    color: #a6a6a6;
+}
+
+/*HOME - Section "Comment ça marche ?" */
+
+.home-steps {
+    background-color: #f5f3ef;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.home-steps h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 24px;
+}
+
+.steps-description {
+    max-width: 420px;
+    margin: 0 auto 40px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+}
+
+.step-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 139px;
+    min-width: 215px;
+}
+
+.step-card p {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.steps-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    margin: 22px 38px 22px 38px;
+
+    background-color: transparent;
+    color: #00ac66;
+    border: 1px solid #00ac66;
+    border-radius: 10px;
+    min-height: 63px;
+    min-width: 218px;
+    box-sizing: border-box;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: background-color 0.4s ease;
+}
+
+.steps-button:hover {
+    background-color: #006d41;
+    color: #ffffff;
+}
+
+/*HOME - Section "Nos Valeurs" */
+
+.home-values {
+    background-color: #f5f3ef;
+}
+
+.values-banner {
+    display: block;
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.values-content {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.values-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.values-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.values-signature {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.values-signature span {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    color: #a6a6a6;
+}
+
+.values-signature img {
+    width: 120px;
+    height: auto;
+    transform: translateX(30px);
+}
