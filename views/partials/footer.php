@@ -11,5 +11,6 @@
         <a href="index.php?action=home"><img src="assets/images/footer_logo.svg" alt="Accueil TomTroc"></a>
     </div>
 </footer>
+</div> <!--Fin de site-container-->
 </body>
 </html>

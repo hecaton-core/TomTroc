@@ -6,11 +6,13 @@ spl_autoload_register(function ($className)
 {
     $directories = [
         'models',
-        'controllers'
+        'controllers',
+        'repositories',
+        'traits'
     ];
 
     foreach ($directories as $directory) {
-        $file = dirname(__DIR__) . '/' . $directory . '/' . $className . '.php';
+        $file = dirname(__DIR__) . '/src/' . $directory . '/' . $className . '.php';
         if (file_exists($file)) {
             require_once $file;
             return;

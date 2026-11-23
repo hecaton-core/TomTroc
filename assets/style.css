@@ -2,13 +2,21 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f5f3ef;
-
+.site-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: #f5f3ef;
+
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
     margin: 0;
 }
 
@@ -139,6 +147,7 @@ main {
     justify-content: center;
     gap: 100px;
     padding: 80px 40px;
+    background-color: #f5f3ef;
 }
 
 .intro-content {

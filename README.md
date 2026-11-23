@@ -7,16 +7,18 @@ Application web de mise en relation entre particuliers pour l'échange de livres
 - PHP (POO/MVC)
 - MySQL
 - HTML / CSS
-JavaScript
+- JavaScript
 
 ## Architecture
 
-- 3 contrôleurs
-- 4 entités et leurs managers
+- 4 contrôleurs
+- 4 entités et leurs repositories
 - Vues PHP
 - Routeur principal index.php
 
 ## État du projet
 
 - Architecture initiale créée
-- Base de données et fonctionnalités à développer
+- Base de données opérationnelle
+- Entités définies et opérationnelles
+- Footer/header communs et vue Accueil, intégration graphique partielle (non-responsive)
