@@ -10,18 +10,19 @@
     </head>
 
     <body>
+        <?php $currentAction = $_GET['action'] ?? 'home'; ?>
         <div class="site-container">
             <header>
                 <nav class="header">
                     <div class="nav-left">
                         <a href="index.php?action=home"><img src="assets/images/navigation_logo.svg" alt ="TomTroc"></a>
-                        <a class="active" href="index.php?action=home">Accueil</a>
-                        <a href="index.php?action=catalog">Nos livres à l'échange</a>
+                        <a href="index.php?action=home" class="<?= $currentAction === 'home' ? 'active' : '' ?>">Accueil</a>
+                        <a href="index.php?action=catalog" class="<?= $currentAction === 'catalog' ? 'active' : '' ?>">Nos livres à l'échange</a>
                     </div>
                     <div class="nav-right">
-                        <a href="index.php?action=messages"><img src="assets/images/navigation_icone_messagerie.svg">Messagerie<span class="message-count">1</span></a>
-                        <a href="index.php?action=profile"><img src="assets/images/navigation_icone_compte.svg">Mon compte</a>
-                        <a href="index.php?action=login">Connexion</a>
+                        <a href="index.php?action=messages" class="<?= $currentAction === 'messages' ? 'active' : '' ?>"><img src="assets/images/navigation_icone_messagerie.svg">Messagerie<span class="message-count">1</span></a>
+                        <a href="index.php?action=profile" class="<?= $currentAction === 'profile' ? 'active' : '' ?>"><img src="assets/images/navigation_icone_compte.svg">Mon compte</a>
+                        <a href="index.php?action=login" class="<?= $currentAction === 'login' ? 'active' : '' ?>">Connexion</a>
                     </div>
                 </nav>
             </header>

@@ -13,8 +13,9 @@ switch ($action) {
         $controller->index();
         break;
 
-    case 'books':
-        echo "Catalogue des livres";
+    case 'catalog':
+        $controller = new BookController();
+        $controller->catalog();
         break;
 
     case 'book':

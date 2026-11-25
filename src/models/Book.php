@@ -7,10 +7,11 @@ class Book
     use IdTrait;
     private string $title;
     private string $author;
-    private ?string $image = null;
+    private string $image = 'book_placeholder.png';
     private string $description;
     private string $status;
     private int $userId;
+    private string $pseudo;
 
     //Getter et setter du titre :
     public function getTitle(): string
@@ -35,12 +36,12 @@ class Book
     }
 
     //Getter et setter de l'image :
-    public function getImage(): ?string
+    public function getImage(): string
     {
         return $this->image;
     }
 
-    public function setImage(?string $image): void
+    public function setImage(string $image): void
     {
         $this->image = $image;
     }
@@ -76,5 +77,16 @@ class Book
     public function setUserId(string $userId): void
     {
         $this->userId = $userId;
+    }
+
+    //Getter et setter du pseudo de l'utilisateur :
+    public function getPseudo(): string
+    {
+        return $this->pseudo;
+    }
+
+    public function setPseudo(string $pseudo): void
+    {
+        $this->pseudo = $pseudo;
     }
 }

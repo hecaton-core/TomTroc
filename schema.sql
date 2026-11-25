@@ -9,7 +9,7 @@ CREATE TABLE books (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     author VARCHAR(150) NOT NULL,
-    image VARCHAR(255),
+    image VARCHAR(255) NOT NULL DEFAULT 'book_placeholder.png',
     description TEXT NOT NULL,
     status ENUM(
         'disponible',

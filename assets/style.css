@@ -1,3 +1,6 @@
+
+/* #region GLOBAL - Styles communs */
+
 * {
     box-sizing: border-box;
 }
@@ -24,7 +27,9 @@ main {
     flex: 1;
 }
 
-/* Barre de navigation du header */
+/* #endregion*/
+
+/* #region HEADER - En-tête et Barre de navigation */
 
 .header {
     display: flex;
@@ -103,7 +108,9 @@ main {
     font-size: 10px;
 }
 
-/* Footer commun */
+/* #endregion*/
+
+/* #region FOOTER - Bas-de-page commun */
 
 .footer {
     display: flex;
@@ -139,8 +146,11 @@ main {
     font-size: 12px;
 }
 
-/* HOME - Section intro */
+/* #endregion*/
 
+/* #region HOME - Page d'accueil */
+
+/* #region Section Intro*/
 .home-intro {
     display: flex;
     align-items: center;
@@ -218,8 +228,9 @@ main {
     margin-top: 8px;
 }
 
-/*HOME - Section Derniers livres ajoutés */
+/* #endregion*/
 
+/* #region Section Derniers livres ajoutés */
 .home-latest-books {
     background-color: #faf9f7;
     padding: 80px 40px;
@@ -267,71 +278,9 @@ main {
     background-color: #006d41;
 }
 
-/* Relatif aux "book cards" de la section précédente */
+/* #endregion*/
 
-.book-card {
-    text-align: left;
-    width: 200px;
-    min-height: 324px;
-    background-color: #ffffff;
-
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.01);
-
-    overflow: hidden;
-}
-
-.book-card:hover {
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
-}
-
-.book-card img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    display: block;
-}
-
-.book-card-link {
-    display: block;
-    width: 100%;
-    height: 100%;
-    color: inherit;
-    text-decoration: none;
-}
-
-.book-card h3 {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    margin: 16px 0 8px;
-    margin-left: 12px;
-}
-
-.book-card p {
-    margin-left: 12px;
-    margin-right: 12px;
-}
-
-.book-author {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 300;
-    color: #a6a6a6;
-    margin-bottom: 16px;
-}
-
-.book-owner {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 300;
-    font-style: italic;
-    color: #a6a6a6;
-}
-
-/*HOME - Section "Comment ça marche ?" */
-
+/* #region Section "Comment ça marche ?" */
 .home-steps {
     background-color: #f5f3ef;
     text-align: center;
@@ -407,8 +356,9 @@ main {
     color: #ffffff;
 }
 
-/*HOME - Section "Nos Valeurs" */
+/* #endregion*/
 
+/* #region Section "Nos Valeurs" */
 .home-values {
     background-color: #f5f3ef;
 }
@@ -460,3 +410,159 @@ main {
     height: auto;
     transform: translateX(30px);
 }
+
+/* #endregion*/
+
+/* #endregion*/
+
+/* #region CATALOGUE */
+
+/* Structure générale */
+
+body:has(.catalog) main {
+        background-color: #FAF9F7;
+}
+
+.catalog {
+    max-width: 954px;
+    margin: 0 auto;
+    padding: 130px 20px 20px;
+}
+
+/* Titre et recherche */
+
+.catalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.catalog-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.catalog-search input {
+    background-image: url('images/catalog_search_magnifier.svg');
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    background-size: 16px 16px;
+    padding-left: 40px;
+
+    width: 322px;
+    max-width: 100%;
+    height: 50px;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.catalog-no-result {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #a6a6a6;
+    text-align: center;
+    margin: 60px 0;
+}
+
+/* Grille de livres */
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    column-gap: 38px;
+    row-gap: 40px;
+}
+
+/* #endregion*/
+
+/* #region COMPOSANTS */
+
+/* Relatif aux "book cards" */
+.book-card {
+    text-align: left;
+    width: 200px;
+    min-height: 324px;
+    background-color: #ffffff;
+
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.01);
+
+    overflow: hidden;
+}
+
+.book-card:hover {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+}
+
+.book-card .book-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    display: block;
+}
+
+.book-card-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.book-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 16px 0 8px;
+    margin-left: 12px;
+}
+
+.book-card p {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.book-author {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: #a6a6a6;
+    margin-bottom: 16px;
+}
+
+.book-owner {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    font-style: italic;
+    color: #a6a6a6;
+}
+
+/* Relatif aux tags 'non-dispo'  sur les books-cards */
+
+.book-cover {
+    position: relative;
+}
+
+.status-badge {
+    width: 71.63px;
+    height: auto;
+}
+
+.book-cover .status-badge {
+    position: absolute;
+    top: 23px;
+    right: 10px;
+}
+
+
+
+/* #endregion*/
