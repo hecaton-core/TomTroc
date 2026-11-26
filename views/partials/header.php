@@ -17,7 +17,7 @@
                     <div class="nav-left">
                         <a href="index.php?action=home"><img src="assets/images/navigation_logo.svg" alt ="TomTroc"></a>
                         <a href="index.php?action=home" class="<?= $currentAction === 'home' ? 'active' : '' ?>">Accueil</a>
-                        <a href="index.php?action=catalog" class="<?= $currentAction === 'catalog' ? 'active' : '' ?>">Nos livres à l'échange</a>
+                        <a href="index.php?action=catalog" class="<?= in_array($currentAction, ['catalog', 'book'], true) ? 'active' : '' ?>">Nos livres à l'échange</a>
                     </div>
                     <div class="nav-right">
                         <a href="index.php?action=messages" class="<?= $currentAction === 'messages' ? 'active' : '' ?>"><img src="assets/images/navigation_icone_messagerie.svg">Messagerie<span class="message-count">1</span></a>

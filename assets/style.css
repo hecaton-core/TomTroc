@@ -482,6 +482,176 @@ body:has(.catalog) main {
 
 /* #endregion*/
 
+/* #region LIVRE UNIQUE */
+
+/* Fil d'Ariane (Breadcrumb) */
+
+.book-breadcrumb-wrapper {
+    background-color: #F5F3EF;
+    width: 100%;
+}
+
+.book-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 120px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 1;
+    color: #A6A6A6;
+}
+
+.book-breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.book-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* Affichage général */
+
+.book-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #faf9f7;
+}
+
+.book-detail-image {
+    aspect-ratio: 720 / 863;
+    overflow: hidden;
+    align-self: stretch; /* Aspect-ratio 720/863 */
+}
+
+.book-detail-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.book-detail-content {
+    padding: 59px 85px;
+}
+
+.book-detail-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 48px;
+    color: #000000;
+    margin: 0 0 16px;
+}
+
+.book-detail-author {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    color: #a6a6a6;
+    margin: 0;
+}
+
+.book-detail-divider {
+    width: 27px;
+    border: none;
+    border-top: 1px solid #a6a6a6;
+    margin: 32px 0;
+}
+
+.book-detail-content h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #292929;
+    margin: 0 0 16px;
+}
+
+.book-detail-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #292929;
+    max-width: 485px;
+    margin: 0;
+}
+
+/* Relatif au "badge" propriétaire du livre */
+
+.owner-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 17px 6px 6px;
+    border-radius: 114px;
+    background-color: #FFFFFF;
+    color: #292929;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 300ms ease-out;
+}
+
+.owner-badge img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.owner-badge:hover {
+    color: #00AC66;
+}
+
+.book-detail-content .book-detail-owner-title {
+    margin-top: 32px;
+}
+
+/* Relatif au bouton de contact du propriétaire du livre */
+
+.book-message-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 485px;
+    padding: 22px 38px;
+    margin-top: 80px;
+    border-radius: 10px;
+    background-color: #00AC66;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    text-decoration: none;
+    transition: background-color 300ms ease-out;
+}
+
+.book-message-button:hover {
+    background-color: #006D41;
+}
+
+/*temporaire-test*/
+
+main:has(.book-detail) {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-detail {
+    flex: 1;
+}
+
+
+/* #endregion */
+
 /* #region COMPOSANTS */
 
 /* Relatif aux "book cards" */

@@ -9,7 +9,7 @@ Class BookRepository
     // Récupération de tous les livres et du pseudo de leurs propriétaires
     public function findAll(): array
     {
-        $sql = "SELECT books.*, users.pseudo FROM books INNER JOIN users ON books.user_id = users.id ORDER BY books.id ASC";
+        $sql = "SELECT books.*, users.pseudo FROM books INNER JOIN users ON books.user_id = users.id ORDER BY books.created_at DESC, books.id DESC";
         $statement = $this->pdo->query($sql);
         $rows = $statement->fetchAll();
 
@@ -43,7 +43,7 @@ Class BookRepository
     public function search(string $search): array
     {
         $sql = "SELECT books.*, users.pseudo FROM books INNER JOIN users ON books.user_id = users.id WHERE books.title  
-        LIKE :title OR books.author LIKE :author ORDER BY books.id ASC";
+        LIKE :title OR books.author LIKE :author ORDER BY books.created_at DESC, books.id DESC";
 
         $statement = $this->pdo->prepare($sql);
         $statement->execute([
@@ -54,7 +54,40 @@ Class BookRepository
         $books = [];
 
         foreach ($rows as $row) {
-        $books[] = $this->hydrateBook($row);
+            $books[] = $this->hydrateBook($row);
+        }
+
+        return $books;
+    }
+
+    // Récupération d'un livre par son identifiant
+    public function findById(int $id): ?Book
+    {
+        $sql = "SELECT books.*, users.pseudo FROM books INNER JOIN users ON books.user_id = users.id WHERE books.id = :id";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute(['id' => $id]);
+
+        $row = $statement->fetch();
+
+        if (!$row) {
+            return null;
+        }
+
+        return $this->hydrateBook($row);
+    }
+
+    // Récupération des quatre derniers livres  ajoutés
+    public function findLatest(): array
+    {
+        $sql = "SELECT books.*, users.pseudo FROM books INNER JOIN users ON books.user_id = users.id ORDER BY books.created_at DESC, 
+        books.id DESC LIMIT 4";
+        $statement = $this->pdo->query($sql);
+        $rows = $statement->fetchAll();
+
+        $books = [];
+
+        foreach ($rows as $row) {
+            $books[] = $this->hydrateBook($row);
         }
 
         return $books;

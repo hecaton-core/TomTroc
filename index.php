@@ -19,7 +19,8 @@ switch ($action) {
         break;
 
     case 'book':
-        echo "Fiche détaillée d'un livre";
+        $controller = new BookController();
+        $controller->book();
         break;
 
     default:

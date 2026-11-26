@@ -16,30 +16,20 @@
 <section class="home-latest-books">
     <h2>Les derniers livres ajoutés</h2>
     <div class="latest-books-grid">
+        <?php 
+        foreach ($books as $book) {?>
         <article class="book-card">
-            <a href="index.php?action=book&id=1" class="book-card-link"><img src="assets/images/book_esther.png" alt="Photo du livre Esther">
-            <h3>Esther</h3>
-            <p class="book-author">Alabaster</p>
-            <p class="book-owner">Proposé par : CamilleClubLit</p></a>
+            <a href="index.php?action=book&id=<?= $book->getId(); ?>" class="book-card-link">
+                <div class="book-cover">
+                    <img class="book-image" src="assets/images/<?= htmlspecialchars($book->getImage()); ?>
+                    " alt="Photo du livre <?=htmlspecialchars ($book->getTitle());?>"><?php if ($book->getStatus() === 'indisponible') { ?>
+                    <img class="status-badge" src="assets/images/book_status_unavailable.svg" alt="non dispo."><?php } ?>
+                </div>
+            <h3><?=htmlspecialchars($book->getTitle());?></h3>
+            <p class="book-author"><?= htmlspecialchars($book->getAuthor());?></p>
+            <p class="book-owner">Proposé par : <?= htmlspecialchars($book->getPseudo());?></p></a>
         </article>
-        <article class="book-card">
-            <a href="index.php?action=book&id=1" class="book-card-link"><img src="assets/images/book_kinfolk_table.png" alt="Photo du livre The Kinfolk Table">
-            <h3>The Kinfolk Table</h3>
-            <p class="book-author">Nathan Williams</p>
-            <p class="book-owner">Proposé par : Nathalire</p></a>
-        </article>
-        <article class="book-card">
-            <a href="index.php?action=book&id=1" class="book-card-link"><img src="assets/images/book_wabi_sabi.png" alt="Photo du livre Wabi Sabi">
-            <h3>Wabi Sabi</h3>
-            <p class="book-author">Beth Kempton</p>
-            <p class="book-owner">Proposé par : Alexlecture</p></a>
-        </article>
-        <article class="book-card">
-            <a href="index.php?action=book&id=1" class="book-card-link"><img src="assets/images/book_milk_honey.png" alt="Photo du livre Milk & Honey">
-            <h3>Milk & honey</h3>
-            <p class="book-author">Rupi Kaur</p>
-            <p class="book-owner">Proposé par : Hugo1990_12</p></a>
-        </article>
+        <?php } ?>      
     </div>
     <a href="index.php?action=catalog" class="latest-books-button">Voir tous les livres</a>
 </section>

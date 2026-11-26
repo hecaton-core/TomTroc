@@ -2,7 +2,8 @@ CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     pseudo VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    profile_picture VARCHAR(255) DEFAULT NULL
 );
 
 CREATE TABLE books (
@@ -17,6 +18,7 @@ CREATE TABLE books (
         'me_contacter'
     ) NOT NULL DEFAULT 'disponible', 
     user_id INT NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
@@ -35,7 +37,7 @@ CREATE TABLE messages (
     conversation_id INT NOT NULL,
     sender_id INT NOT NULL,
     content TEXT NOT NULL,
-    date_created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (conversation_id) REFERENCES conversations(id),
     FOREIGN KEY (sender_id) REFERENCES users(id)   
 );
