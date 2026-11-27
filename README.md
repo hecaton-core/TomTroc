@@ -24,3 +24,4 @@ Application web de mise en relation entre particuliers pour l'échange de livres
 - Footer/header communs et vue Accueil, intégration graphique partielle (non-responsive)
 - Page Catalogue + barre de recherche implémentés et fonctionnels
 - Page de détail d'un livre (graphiquement adaptée, voir journal de développement)
+- Pages d'inscription et connexion, sessions utilisateurs et ajouts des utilisateurs dans la BDD

@@ -1,5 +1,6 @@
 <?php
 
+// Classe dédiée à la gestion des livres
 class BookController
 {
     // Méthode pour l'affichage de la page "Nos livres à l'échange" (action=catalog)

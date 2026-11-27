@@ -108,6 +108,15 @@ main {
     font-size: 10px;
 }
 
+.logout-button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
 /* #endregion*/
 
 /* #region FOOTER - Bas-de-page commun */
@@ -603,11 +612,40 @@ body:has(.catalog) main {
     width: 48px;
     height: 48px;
     border-radius: 50%;
+    display: block;
     object-fit: cover;
 }
 
 .owner-badge:hover {
     color: #00AC66;
+}
+
+.owner-avatar {
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    flex-shrink: 0;
+}
+
+.owner-avatar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background-color: #00AC66;
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+    pointer-events: none;
+
+    mask-image: url('images/default_avatar.png');
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.owner-badge:hover .owner-avatar::after {
+    opacity: 0.65;
 }
 
 .book-detail-content .book-detail-owner-title {
@@ -638,17 +676,154 @@ body:has(.catalog) main {
     background-color: #006D41;
 }
 
-/*temporaire-test*/
+/* #endregion */
 
-main:has(.book-detail) {
+/* #region AUTHENTIFICATION */
+
+.auth-page {
+    display: flex;
+    width: 100%;
+    background-color: #FAF9F7;
+}
+
+.auth-content {
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    padding: 135px 0 60px;
+    box-sizing: border-box;
+}
+
+.auth-form-container {
+    width: 322px;
+    max-width: 90%;
+    margin-left: 20.83%;
+}
+
+.auth-image {
+    width: 50%;
+    aspect-ratio: 720 / 863;
+    overflow: hidden;
+    align-self: stretch;
+}
+
+.auth-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Mise en forme du formulaire */
+
+.auth-form-container h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1;
+    color: #000000;
+    margin: 0 0 70px;
+}
+
+.auth-form {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
-.book-detail {
-    flex: 1;
+.auth-form label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #A6A6A6;
+    margin-bottom: 10px;
 }
 
+.auth-form input:not([type="hidden"]) {
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    border: 1px solid #F0F0F0;
+    border-radius: 6px;
+    padding: 0 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-bottom: 32px;
+}
+
+/* Relatif à l'oeil pour afficher/cacher le password */
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 45px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 30%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.password-toggle img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.6;
+    display: block;
+}
+
+.password-toggle:hover img {
+    opacity: 1;
+}
+
+/* Bouton "s'inscrire/connexion" */
+
+.auth-form button[type="submit"] {
+    width: 100%;
+    height: 63px;
+    background-color: #00AC66;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 300ms ease-out;
+}
+
+.auth-form button[type="submit"]:hover {
+    background-color: #006D41;
+}
+
+/* Lien de changement connexion/inscription */
+
+.auth-switch {
+    margin-top: 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    color: #292929;
+}
+
+.auth-switch a {
+    color: inherit;
+    text-decoration: underline;
+}
 
 /* #endregion */
 
@@ -736,3 +911,16 @@ main:has(.book-detail) {
 
 
 /* #endregion*/
+
+FIX
+
+/* Extension verticale du contenu principal */
+
+main:has(.book-detail), main:has(.auth-page) {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-detail, .auth-page {
+    flex: 1;
+}

@@ -36,7 +36,7 @@ Class UserRepository
         return $user;
     }
 
-        // Récupération d'un User par son identifiant
+    // Récupération d'un User par son identifiant
     public function findById(int $id): ?User
     {
         $sql = "SELECT users.* FROM users WHERE users.id = :id";
@@ -50,5 +50,51 @@ Class UserRepository
         }
 
         return $this->hydrateUser($row);
+    }
+
+    // Récupération d'un User par son adresse email
+    public function findByEmail(string $email): ?User
+    {
+        $sql = "SELECT users.* FROM users WHERE users.email = :email";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute(['email' => $email]);
+
+        $row = $statement->fetch();
+
+        if (!$row) {
+            return null;
+        }
+
+        return $this->hydrateUser($row);
+    }
+
+    // Récupération d'un User par son pseudo
+    public function findByPseudo(string $pseudo): ?User
+    {
+        $sql = "SELECT users.* FROM users WHERE users.pseudo = :pseudo";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute(['pseudo' => $pseudo]);
+
+        $row = $statement->fetch();
+
+        if (!$row) {
+            return null;
+        }
+
+        return $this->hydrateUser($row);
+    }
+
+    // Création d'un nouvel utilisateur en BDD (utile pour création de compte)
+    public function create(User $user): int
+    {
+        $sql = "INSERT INTO users (pseudo, email, password) VALUES (:pseudo, :email, :password)";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute([
+            'pseudo' => $user->getPseudo(),
+            'email' => $user->getEmail(),
+            'password' => $user->getPassword()
+        ]);
+
+        return (int) $this->pdo->lastInsertId();
     }
 }

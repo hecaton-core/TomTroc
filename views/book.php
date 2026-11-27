@@ -33,9 +33,12 @@
         <?php if ($owner !== null): ?>
         <h2 class="book-detail-owner-title">Propriétaire</h2>
         <a class="owner-badge" href="index.php?action=profile&id=<?= $owner->getId() ?>">
-            <img src="assets/images/<?= htmlspecialchars($owner->getProfilePicture() ?: 'default_avatar.png') ?>"
-            alt="Photo de profil">
+            <div class="owner-avatar">
+                <img src="assets/images/<?= htmlspecialchars($owner->getProfilePicture() ?: 'default_avatar.png') ?>"
+                alt="Photo de profil">
+            </div>
             <span><?= htmlspecialchars($owner->getPseudo()) ?></span>
+            
         </a>
         <a class="book-message-button"
             href="index.php?action=messaging&userId=<?= $owner->getId() ?>">

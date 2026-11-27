@@ -1,5 +1,8 @@
 <?php
 
+// Initialisation de la session utilisateur
+session_start();
+
 // Chargement de l'autoloader
 require_once __DIR__ . '/config/autoload.php';
 
@@ -21,6 +24,33 @@ switch ($action) {
     case 'book':
         $controller = new BookController();
         $controller->book();
+        break;
+
+    case 'register':
+        $controller = new UserController();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller->register();
+        } else {
+            $controller->showRegister();
+        }
+        break;
+
+    case 'login':
+        $controller = new UserController();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller->login();
+        } else {
+            $controller->showLogin();
+        }
+        break;
+
+    case 'logout':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            http_response_code(405);
+            exit('Méthode non-autorisée.');
+        }
+        $controller = new UserController();
+        $controller->logout();
         break;
 
     default:
